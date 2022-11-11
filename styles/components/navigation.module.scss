@@ -1,0 +1,26 @@
+.nav {
+  display: flex;
+}
+
+.nav__main {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-size: 0.9rem;
+}
+
+.main__image {
+  position: relative;
+  aspect-ratio: 3/2;
+  height: 4rem;
+}
+
+.main__list {
+  display: flex;
+  gap: 1rem;
+
+  li {
+    text-decoration: none;
+    list-style: none;
+  }
+}
