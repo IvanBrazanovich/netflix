@@ -1,4 +1,5 @@
-.popular {
+.list {
+  width: 100%;
   padding-left: 4%;
   background: linear-gradient(
     to top,
@@ -8,30 +9,26 @@
     rgba(43, 42, 42, 0.2),
     rgba(48, 46, 46, 0)
   );
-
   &__heading {
     margin: 2rem 0;
     font-weight: 600;
   }
 }
 
-.popularWrapper {
+.listWrapper {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.popularItem {
-  min-width: 15rem;
-  aspect-ratio: 9/6;
-  position: relative;
-  div {
-    display: inline-block;
-    height: 10rem;
-    width: 50%;
+.listItem {
+  div[type="img_container"] {
+    position: relative;
+    aspect-ratio: 9/5;
+    height: 25rem;
 
-    &[type="img_container"] {
-      position: relative;
+    img {
+      width: 25rem !important;
     }
   }
 }

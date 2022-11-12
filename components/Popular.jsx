@@ -11,9 +11,15 @@ const Popular = () => {
   }, []);
   return (
     <section className={styles.popular}>
-      {movies?.map((movie) => {
-        return <PopularItem key={movie.id} movie={movie} />;
-      })}
+      <p className={styles.popular__heading}>
+        Las 10 películas más populares en Argentina hoy{" "}
+      </p>
+
+      <div className={styles.popularWrapper}>
+        {movies?.map((movie, rank) => {
+          return <PopularItem rank={rank} key={movie.id} movie={movie} />;
+        })}
+      </div>
     </section>
   );
 };

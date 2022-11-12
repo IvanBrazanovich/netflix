@@ -1,21 +1,18 @@
 .header {
+  display: flow-root;
   min-width: 100vw;
+  position: relative;
 }
 
 .video__wrapper {
   img {
     z-index: -10;
-    height: 100%;
   }
-}
-
-.hero__img {
-  height: 100%;
 }
 
 .header_description {
   max-width: 28rem;
-  margin: 8rem 0 2rem 4%;
+  margin: 12rem 0 2rem 4%;
 }
 
 .description__imgWrapper {
@@ -44,6 +41,8 @@
   border: none;
   gap: 0.4rem;
   font-weight: 600;
+
+  margin-bottom: 2rem;
 
   ion-icon {
     font-size: 1.6rem;
