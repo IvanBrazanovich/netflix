@@ -1,5 +1,10 @@
 .nav {
+  color: #fff;
   display: flex;
+  justify-content: space-between;
+  padding: 0 4%;
+  position: fixed;
+  width: 100%;
 }
 
 .nav__main {
@@ -22,5 +27,16 @@
   li {
     text-decoration: none;
     list-style: none;
+  }
+}
+
+.nav__features {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 900;
+  font-size: 1.5rem;
+  ion-icon {
+    --ionicon-stroke-width: 50px;
   }
 }
