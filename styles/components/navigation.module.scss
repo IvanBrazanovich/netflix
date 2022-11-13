@@ -5,6 +5,12 @@
   padding: 0 4%;
   position: fixed;
   width: 100%;
+  transition: all ease-in-out 250ms;
+  z-index: 20;
+}
+
+.nav.active {
+  background-color: #141414;
 }
 
 .nav__main {

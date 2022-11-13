@@ -7,7 +7,16 @@ const Popular = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    setMovies(dataBase.d);
+    const fetchMovies = async () => {
+      const response = await fetch(
+        "https://api.themoviedb.org/3/trending/movie/week?api_key=390c68bbed9ef9bfdb14c50c1f4ceccf"
+      );
+      const res = await response.json();
+
+      setMovies(res.results);
+    };
+
+    fetchMovies();
   }, []);
   return (
     <section className={styles.popular}>

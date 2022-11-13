@@ -6,6 +6,7 @@ import styles from "../styles/components/layout.module.scss";
 import Hero from "./Hero";
 import Link from "next/link";
 import MainContent from "./MainContent";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
@@ -34,6 +35,8 @@ const Layout = ({ children }) => {
 
         <MainContent />
         {children}
+
+        <Footer />
       </main>
     </>
   );

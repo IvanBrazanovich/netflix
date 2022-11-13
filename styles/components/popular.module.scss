@@ -1,13 +1,6 @@
 .popular {
   padding-left: 4%;
-  background: linear-gradient(
-    to top,
-    #141414,
-    rgba(43, 42, 42, 1),
-    rgba(43, 42, 42, 0.7),
-    rgba(43, 42, 42, 0.2),
-    rgba(48, 46, 46, 0)
-  );
+  background: linear-gradient(to top, #141414, rgba(48, 46, 46, 0));
 
   &__heading {
     margin: 2rem 0;
@@ -22,9 +15,11 @@
 }
 
 .popularItem {
-  min-width: 15rem;
+  flex: 0 0 20%;
   aspect-ratio: 9/6;
   position: relative;
+  border-radius: 4px;
+  overflow: hidden;
   div {
     display: inline-block;
     height: 10rem;
@@ -45,5 +40,5 @@
 
 .nlogo {
   width: 0.7rem !important;
-  z-index: 40;
+  z-index: 10;
 }

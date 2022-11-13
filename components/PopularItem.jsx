@@ -5,9 +5,7 @@ import ranks from "../public/img/ranks.js";
 import nlogo from "../public/img/n_logo.svg";
 
 const PopularItem = ({ movie, rank }) => {
-  const {
-    i: { imageUrl },
-  } = movie;
+  const { poster_path } = movie;
   // console.log(i);{ranks[`rank${rank + 1}`]}
   return (
     <div className={styles.popularItem}>
@@ -15,11 +13,21 @@ const PopularItem = ({ movie, rank }) => {
       <div type="img_container" className={styles.popularItem__imgWrapper}>
         {Math.random() < 0.7 ? (
           <div className={styles.nlogo_wrapper}>
-            <Image className={styles.nlogo} src={nlogo} fill />
+            <Image
+              alt="NETFLIX LOGO"
+              className={styles.nlogo}
+              src={nlogo}
+              fill
+            />
           </div>
         ) : null}
 
-        <Image alt="Picture" src={imageUrl} fill objectFit="cover" />
+        <Image
+          alt="Picture"
+          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+          fill
+          objectFit="cover"
+        />
       </div>
     </div>
   );

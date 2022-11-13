@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/components/navigation.module.scss";
 import logo from "../public/img/netflix_logo.svg";
 import Image from "next/image";
 
 const Navigation = () => {
+  const [navShow, setNavShow] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeBackground);
+
+    return () => window.removeEventListener("scroll", changeBackground);
+  }, []);
+
+  const changeBackground = () => {
+    if (window.scrollY !== 0) {
+      setNavShow(true);
+    } else {
+      setNavShow(false);
+    }
+  };
+
   return (
     <>
-      <nav className={styles.nav}>
+      <nav
+        className={navShow ? `${styles.nav} ${styles.active}` : `${styles.nav}`}
+      >
         <div className={styles.nav__main}>
           <div className={styles.main__image}>
             <Image
