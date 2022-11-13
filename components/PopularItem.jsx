@@ -6,7 +6,6 @@ import nlogo from "../public/img/n_logo.svg";
 
 const PopularItem = ({ movie, rank }) => {
   const { poster_path } = movie;
-  // console.log(i);{ranks[`rank${rank + 1}`]}
   return (
     <div className={styles.popularItem}>
       <div type="svg_container"> {ranks[`rank${rank + 1}`]} </div>
