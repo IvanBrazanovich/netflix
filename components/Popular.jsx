@@ -6,19 +6,30 @@ import styles from "../styles/components/popular.module.scss";
 const Popular = () => {
   const [result, setResults] = useState([]);
   const [currSlide, setCurrSlide] = useState(0);
+  const [type, setType] = useState("");
   const [totalSlides, setTotalSlides] = useState(0);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      const response = await fetch(
-        "https://api.themoviedb.org/3/trending/movie/week?api_key=390c68bbed9ef9bfdb14c50c1f4ceccf"
-      );
-      const res = await response.json();
-      console.log(res);
-      setResults({ ...res, results: [...res.results.slice(0, 10)] });
-    };
+    try {
+      let url;
+      if (Math.random() < 0.5) {
+        url =
+          "https://api.themoviedb.org/3/tv/popular?api_key=390c68bbed9ef9bfdb14c50c1f4ceccf&language=en-US&page=1";
+        setType("tv");
+      } else {
+        setType("movie");
+        url =
+          "https://api.themoviedb.org/3/movie/popular?api_key=390c68bbed9ef9bfdb14c50c1f4ceccf&language=en-US&page=1";
+      }
 
-    fetchMovies();
+      const fetchMovies = async () => {
+        const response = await fetch(url);
+        const res = await response.json();
+        setResults({ ...res, results: [...res.results.slice(0, 10)] });
+      };
+
+      fetchMovies();
+    } catch (err) {}
   }, []);
 
   useEffect(() => {
@@ -30,13 +41,15 @@ const Popular = () => {
     if (currSlide + 1 === totalSlides) {
       setCurrSlide(0);
     } else {
-      setCurrSlide((state) => state + 1);
+      {
+        setCurrSlide((state) => state + 1);
+      }
     }
   };
 
   const prevSlide = () => {
-    if (totalSlides === currSlide - 1) {
-      console.log(result.items);
+    if (currSlide === 0) {
+      setCurrSlide(totalSlides);
     }
     setCurrSlide((state) => state - 1);
   };
@@ -44,9 +57,9 @@ const Popular = () => {
   return (
     <section className={styles.popular}>
       <p className={styles.popular__heading}>
-        {/* {result?.description
-          ? result?.description
-          : "Las 10 películas más populares en Argentina"} */}
+        {type === "tv"
+          ? "Las 10 series más populares en Argentina"
+          : "Las 10 películas más populares en Argentina"}
       </p>
 
       {/* <div className={styles.popularWrapper}>

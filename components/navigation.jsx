@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/components/navigation.module.scss";
 import logo from "../public/img/netflix_logo.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navigation = () => {
   const [navShow, setNavShow] = useState(false);
@@ -38,12 +39,24 @@ const Navigation = () => {
             />
           </div>
           <ul className={styles.main__list}>
-            <li>Inicio</li>
-            <li>Series</li>
-            <li>Películas</li>
-            <li>Novedades populares</li>
-            <li>Mi lista</li>
-            <li>Explora por idiomas</li>
+            <Link className={styles.links} href="/">
+              Inicio
+            </Link>
+            <Link className={styles.links} href="/series">
+              Series
+            </Link>
+            <Link className={styles.links} href="/peliculas">
+              Películas
+            </Link>
+            <Link className={styles.links} href="/">
+              Novedades populares
+            </Link>
+            <Link className={styles.links} href="/">
+              Mi Lista
+            </Link>
+            <Link className={styles.links} href="/">
+              Explora por idiomas
+            </Link>
           </ul>
         </div>
         <div className={styles.nav__features}>

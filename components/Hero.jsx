@@ -1,11 +1,24 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/components/hero.module.scss";
 import heroImg from "../public/img/hero.jpg";
 import descriptionImg from "../public/img/moviedescription.webp";
-import Popular from "./Popular";
+import { useRouter } from "next/router";
+import RouterChange from "./RouterChange";
 
 const Hero = () => {
+  const [mode, setMode] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.pathname === "/peliculas") {
+      setMode("peliculas");
+    }
+
+    if (router.pathname === "/series") {
+      setMode("series");
+    }
+  }, [router]);
   return (
     <div className={styles.header__container}>
       <header className={styles.header}>
@@ -18,6 +31,10 @@ const Hero = () => {
             objectFit="cover"
           />
         </div>
+
+        {mode === "peliculas" ? <RouterChange text="Películas" /> : null}
+
+        {mode === "series" ? <RouterChange text="Series" /> : null}
 
         <div className={styles.header_description}>
           <div className={styles.description__imgWrapper}>
@@ -55,8 +72,6 @@ const Hero = () => {
         <div className={styles.header__reloadInformation}>
           <ion-icon name="refresh-circle-outline"></ion-icon> <p> 16+</p>
         </div>
-
-        {/* <Popular /> */}
       </header>
     </div>
   );
