@@ -7,50 +7,58 @@ import Popular from "./Popular";
 
 const Hero = () => {
   return (
-    <header className={styles.header}>
-      <div className={styles.video__wrapper}>
-        <Image
-          alt="heroImg"
-          className={styles.hero__img}
-          src={heroImg}
-          fill
-          objectFit="cover"
-        />
-      </div>
-
-      <div className={styles.header_description}>
-        <div className={styles.description__imgWrapper}>
+    <div className={styles.header__container}>
+      <header className={styles.header}>
+        <div className={styles.video__wrapper}>
           <Image
-            alt="description Image"
-            src={descriptionImg}
+            alt="heroImg"
+            className={styles.hero__img}
+            src={heroImg}
             fill
-            objectFit="contain"
+            objectFit="cover"
           />
         </div>
 
-        <p className={styles.description__text}>
-          Atrapado entre dos clanes en guerra, el hijo de un famoso brujo
-          responsable de una masacre mortal intenta encontrar su lugar en el
-          mundo… y sus poderes.
-        </p>
+        <div className={styles.header_description}>
+          <div className={styles.description__imgWrapper}>
+            <Image
+              alt="description Image"
+              src={descriptionImg}
+              fill
+              objectFit="contain"
+            />
+          </div>
 
-        <div className={styles.description__buttonsWrapper}>
-          <button btn-type="reproducir" className={styles.description__button}>
-            <ion-icon name="play"></ion-icon> <p>Reproducir</p>
-          </button>
-          <button btn-type="information" className={styles.description__button}>
-            <ion-icon name="information-circle-outline"></ion-icon>{" "}
-            <p> Más información</p>
-          </button>
+          <p className={styles.description__text}>
+            Atrapado entre dos clanes en guerra, el hijo de un famoso brujo
+            responsable de una masacre mortal intenta encontrar su lugar en el
+            mundo… y sus poderes.
+          </p>
+
+          <div className={styles.description__buttonsWrapper}>
+            <button
+              btn-type="reproducir"
+              className={styles.description__button}
+            >
+              <ion-icon name="play"></ion-icon> <p>Reproducir</p>
+            </button>
+            <button
+              btn-type="information"
+              className={styles.description__button}
+            >
+              <ion-icon name="information-circle-outline"></ion-icon>{" "}
+              <p> Más información</p>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div className={styles.header__reloadInformation}>
-        <ion-icon name="refresh-circle-outline"></ion-icon> <p> 16+</p>
-      </div>
+        <div className={styles.header__reloadInformation}>
+          <ion-icon name="refresh-circle-outline"></ion-icon> <p> 16+</p>
+        </div>
 
-      <Popular />
-    </header>
+        {/* <Popular /> */}
+      </header>
+    </div>
   );
 };
 

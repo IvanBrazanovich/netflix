@@ -54,8 +54,6 @@ const ListItem = ({ number }) => {
     setCurrSlide((state) => state - 1);
   };
 
-  console.log(result);
-
   if (Object.keys(result).length === 0) return;
   if (result?.items.length === 0) return;
   return (

@@ -1,10 +1,40 @@
 .header {
   display: flow-root;
   min-width: 100vw;
+}
+
+.header__container {
   position: relative;
+  display: flow-root;
 }
 
 .video__wrapper {
+  position: absolute;
+  min-width: 100vw;
+  min-height: 115vh;
+  z-index: -1;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    height: 50%;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, #141414, rgba(29, 28, 28, 0));
+  }
+  // background: linear-gradient(
+  //   to top,
+  //   #141414,
+  //   rgba(48, 46, 46, 0),
+  //   rgba(48, 46, 46, 0.1),
+  //   rgba(48, 46, 46, 0.3),
+  //   rgba(48, 46, 46, 0.6),
+  //   rgba(48, 46, 46, 0.8)
+  // );
+
   img {
     z-index: -5;
   }
