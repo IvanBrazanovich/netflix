@@ -7,8 +7,8 @@ import useDebounce from "./useDebounce";
 
 const Item = ({ movie }) => {
   const [portal, setPortal] = useState(false);
-  const [portal2, setPortal2] = useState(false);
   const [positionArray, setPositionArray] = useState({});
+  const [activePortal, setActivePortal] = useState(false);
   const cardRef = useRef();
   const { backdrop_path } = movie;
 
@@ -24,19 +24,20 @@ const Item = ({ movie }) => {
     setPositionArray(position);
     setPortal(true);
   };
+
+  const showPortal = useDebounce(portal, 750);
+
+  useEffect(() => {
+    setActivePortal(showPortal);
+  }, [showPortal]);
+
   return (
     <>
       <div
         ref={cardRef}
         className={styles.listItem}
-        onMouseEnter={() => {
-          setPortal2(true);
-          setTimeout(() => {
-            changePortal();
-          }, 1000);
-        }}
+        onMouseEnter={changePortal}
         onMouseLeave={() => {
-          setPortal2(false);
           setPortal(false);
         }}
       >
@@ -58,7 +59,7 @@ const Item = ({ movie }) => {
             objectFit="cover"
           />
         </div>
-        {portal && portal2 ? (
+        {activePortal ? (
           <CardPortal selector="#cardportal">
             <div
               className={styles.cardPortal}
