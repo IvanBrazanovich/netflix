@@ -10,7 +10,7 @@ const Item = ({ movie }) => {
   const [positionArray, setPositionArray] = useState({});
   const [activePortal, setActivePortal] = useState(false);
   const cardRef = useRef();
-  const { backdrop_path } = movie;
+  const { backdrop_path, poster_path } = movie;
 
   const changePortal = () => {
     const rect = cardRef.current.getBoundingClientRect();
@@ -54,7 +54,9 @@ const Item = ({ movie }) => {
           ) : null}
           <Image
             alt="Picture"
-            src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w500/${
+              backdrop_path || poster_path
+            }`}
             fill
             objectFit="cover"
           />
