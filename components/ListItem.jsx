@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setUrl } from "../pages/app/slices/moviesSlice";
+import { setUrl } from "../context/app/slices/moviesSlice";
 import styles from "../styles/components/lists.module.scss";
 import Item from "./Item";
 

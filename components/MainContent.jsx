@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setUrl } from "../pages/app/slices/moviesSlice";
+import { setUrl } from "../context/app/slices/moviesSlice";
 import styles from "../styles/components/maincontent.module.scss";
 import ListItem from "./ListItem";
 import Popular from "./Popular";

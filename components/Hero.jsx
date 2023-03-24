@@ -6,7 +6,7 @@ import descriptionImg from "../public/img/moviedescription.webp";
 import { useRouter } from "next/router";
 import RouterChange from "./RouterChange";
 import { useDispatch, useSelector } from "react-redux";
-import { setUrl } from "../pages/app/slices/moviesSlice";
+import { setUrl } from "../context/app/slices/moviesSlice";
 
 const Hero = () => {
   const router = useRouter();

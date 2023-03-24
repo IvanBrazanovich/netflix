@@ -1,5 +1,5 @@
 import "../styles/index.scss";
-import { store } from "./app/store";
+import store from "../context/app/store";
 
 import { Provider } from "react-redux";
 

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useDebounceSearch from "./useDebounceSearch";
 import { useDispatch } from "react-redux";
-import { setSearch } from "../pages/app/slices/moviesSlice";
+import { setSearch } from "../context/app/slices/moviesSlice";
 
 const Navigation = () => {
   const [navShow, setNavShow] = useState(false);
