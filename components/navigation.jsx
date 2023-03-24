@@ -77,7 +77,7 @@ const Navigation = () => {
                (max-width: 1200px) 90px,
                90px"
               fill
-              objectFit="contain"
+              style={{ objectFit: "contain" }}
               src={logo}
               alt="Netflix logo"
             />

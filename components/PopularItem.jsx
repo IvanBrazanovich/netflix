@@ -61,7 +61,7 @@ const PopularItem = ({ movie, rank }) => {
           alt="Picture"
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           fill
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
         />
       </div>
 
@@ -96,7 +96,7 @@ const PopularItem = ({ movie, rank }) => {
                   alt="Picture"
                   src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
                   fill
-                  objectFit="cover"
+                  style={{ objectFit: "cover" }}
                 />
               </div>
 

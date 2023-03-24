@@ -13,7 +13,7 @@ const ItemSearch = () => {
         alt="Picture"
         src={`https://image.tmdb.org/t/p/w500/${backdrop_path || poster_path}`}
         fill
-        objectFit="cover"
+        style={{ objectFit: "cover" }}
       />
     </div>
   );
