@@ -65,7 +65,7 @@ const Item = ({ movie }) => {
             backdrop_path || poster_path
           }`}
           fill
-          objectFit="cover"
+          style={{ objectFit: "contain" }}
         />
       </div>
       {activePortal ? (
@@ -101,7 +101,7 @@ const Item = ({ movie }) => {
                     poster_path || backdrop_path
                   }`}
                   fill
-                  objectFit="cover"
+                  style={{ objectFit: "contain" }}
                 />
               </div>
 

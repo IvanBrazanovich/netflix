@@ -46,7 +46,7 @@ const Hero = () => {
             className={styles.hero__img}
             src={heroImg}
             fill
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
           />
         </div>
 
@@ -60,7 +60,7 @@ const Hero = () => {
               alt="description Image"
               src={descriptionImg}
               fill
-              objectFit="contain"
+              style={{ objectFit: "contain" }}
             />
           </div>
 
