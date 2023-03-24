@@ -3,7 +3,6 @@ import React from "react";
 import Navigation from "./navigation";
 import styles from "../styles/components/layout.module.scss";
 import Hero from "./Hero";
-import Link from "next/link";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
