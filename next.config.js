@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ["m.media-amazon.com", "image.tmdb.org"],
   },
+  pageExtensions: ["page.tsx", "page.ts", "page.jsx", "page.js"],
 };
 
 module.exports = nextConfig;
