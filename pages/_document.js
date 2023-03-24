@@ -4,7 +4,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <title>NETFLIX</title>
+        </Head>
         <body>
           <Main />
           <div id="cardportal" />
