@@ -3,8 +3,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html>
-      <Head />
-      <title>NETFLIX</title>
+      <Head></Head>
       <body>
         <Main />
         <div id="cardportal" />
