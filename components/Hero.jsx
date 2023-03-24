@@ -5,20 +5,38 @@ import heroImg from "../public/img/hero.jpg";
 import descriptionImg from "../public/img/moviedescription.webp";
 import { useRouter } from "next/router";
 import RouterChange from "./RouterChange";
+import { useDispatch, useSelector } from "react-redux";
+import { setUrl } from "../pages/app/slices/moviesSlice";
 
 const Hero = () => {
-  const [mode, setMode] = useState("");
   const router = useRouter();
+  const urlType = useSelector((state) => state.movies.urlType);
+  const search = useSelector((state) => state.movies.search);
+  const [urlCurrent, setUrlCurrent] = useState("/");
+  const dispatch = useDispatch();
 
+  //Update redux router state
   useEffect(() => {
+    setUrlCurrent(urlType);
+  }, [urlType]);
+
+  //Update peliculas/series menu
+  useEffect(() => {
+    let url;
     if (router.pathname === "/peliculas") {
-      setMode("peliculas");
+      url = "/peliculas";
     }
 
     if (router.pathname === "/series") {
-      setMode("series");
+      url = "/series";
     }
-  }, [router]);
+    if (router.pathname === "/") {
+      url = "/";
+    }
+    dispatch(setUrl(url));
+  }, [dispatch, router]);
+
+  if (search) return null;
   return (
     <div className={styles.header__container}>
       <header className={styles.header}>
@@ -32,9 +50,9 @@ const Hero = () => {
           />
         </div>
 
-        {mode === "peliculas" ? <RouterChange text="Películas" /> : null}
+        {urlCurrent === "/peliculas" ? <RouterChange text="Películas" /> : null}
 
-        {mode === "series" ? <RouterChange text="Series" /> : null}
+        {urlCurrent === "/series" ? <RouterChange text="Series" /> : null}
 
         <div className={styles.header_description}>
           <div className={styles.description__imgWrapper}>

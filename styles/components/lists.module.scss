@@ -62,9 +62,12 @@
   // gap: 0.4rem;
 }
 
-.listItem {
+.slider .listItem {
   flex: 0 0 20%;
   max-width: 20%;
+}
+
+.listItem {
   padding: 0 0.3rem;
   cursor: pointer;
 

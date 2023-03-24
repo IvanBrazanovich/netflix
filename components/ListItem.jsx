@@ -1,17 +1,17 @@
 import { useRouter } from "next/router";
 import React from "react";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setUrl } from "../pages/app/slices/moviesSlice";
 import styles from "../styles/components/lists.module.scss";
 import Item from "./Item";
 
-const ListItem = ({ type }) => {
+const ListItem = ({ type, urlType }) => {
   const [result, setResult] = useState([]);
   const [currSlide, setCurrSlide] = useState(0);
   const [totalSlides, setTotalSlides] = useState(0);
   const [genres, setGenres] = useState([]);
   const [currentGenreId, setCurrentGenreId] = useState("");
-
-  const route = useRouter();
 
   useEffect(() => {
     try {
@@ -33,7 +33,7 @@ const ListItem = ({ type }) => {
     if (genres.length === 0) return;
     const genre = genres.filter((item) => item.name === type);
     setCurrentGenreId(genre[0].id);
-  }, [genres]);
+  }, [genres, type]);
 
   useEffect(() => {
     if (!currentGenreId) return;
@@ -43,13 +43,11 @@ const ListItem = ({ type }) => {
       const movieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=390c68bbed9ef9bfdb14c50c1f4ceccf&language=en-US&sort_by=popularity.desc&include_adult=false&page=1&with_genres=${currentGenreId}`;
       const seriesUrl = `
       https://api.themoviedb.org/3/discover/tv?api_key=390c68bbed9ef9bfdb14c50c1f4ceccf&language=en-US&sort_by=popularity.desc&page=1&with_genres=${currentGenreId}&include_null_first_air_dates=false`;
-      console.log(route.pathname);
-      if (route.pathname === "/peliculas") url = movieUrl;
+      if (urlType === "/peliculas") url = movieUrl;
 
-      if (route.pathname === "/series") url = seriesUrl;
+      if (urlType === "/series") url = seriesUrl;
 
-      if (route.pathname === "/")
-        url = Math.random() < 0.5 ? movieUrl : seriesUrl;
+      if (urlType === "/") url = Math.random() < 0.5 ? movieUrl : seriesUrl;
 
       try {
         const response = await fetch(url);
@@ -65,7 +63,7 @@ const ListItem = ({ type }) => {
     };
 
     fetchMovies();
-  }, [currentGenreId]);
+  }, [currentGenreId, urlType]);
 
   useEffect(() => {
     setTotalSlides(Math.ceil(result?.length / 5));

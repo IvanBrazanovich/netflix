@@ -62,12 +62,6 @@ const Popular = () => {
           : "Las 10 películas más populares en Argentina"}
       </p>
 
-      {/* <div className={styles.popularWrapper}>
-        {result.results?.map((movie, rank) => {
-          return <PopularItem rank={rank} key={movie.id} movie={movie} />;
-        })}
-      </div> */}
-
       <div className={styles.container}>
         <button
           onClick={prevSlide}
